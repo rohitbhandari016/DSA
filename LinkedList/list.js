@@ -35,6 +35,19 @@ class LinkedList {
     }
   }
 
+  addAtposition(data, position){
+    const node = new Node(data);
+    let current = this.head;
+
+    while(position-1 && current.next){
+        current = current.next;
+        position--
+    }
+
+    node.next=current.next;
+    current.next = node;
+  }
+
   print() {
     let current = this.head;
 
@@ -48,14 +61,16 @@ class LinkedList {
 const obj = new LinkedList();
 
 //add
-// obj.add(1);
-// obj.add(2);
-// obj.add(3);
-// obj.add(4);
-// obj.add(5);
+obj.add(1);
+obj.add(2);
+obj.add(3);
+obj.add(4);
+obj.add(5);
 
 //add at begining
 obj.addAtBegining(0);
+
+obj.addAtposition(45,30)
 
 //print
 obj.print();
