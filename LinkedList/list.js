@@ -61,6 +61,22 @@ class LinkedList {
     current.next=null
   }
 
+  middle(){
+    let count = 0;
+    let current = this.head;;
+    while(current){
+        count++;
+        current = current.next;
+    }
+    let middle = Math.floor(count/2);
+    let current1 = this.head;
+    while(middle){
+        current1 = current1.next;
+        middle--;
+    }
+    console.log(current1);
+  }
+
   print() {
     let current = this.head;
 
@@ -79,6 +95,10 @@ obj.add(2);
 obj.add(3);
 obj.add(4);
 obj.add(5);
+obj.add(6);
+
+
+
 
 //add at begining
 // obj.addAtBegining(0);
@@ -90,7 +110,9 @@ obj.add(5);
 // obj.deleteFromBegining()
 
 //deleteFromLast
-obj.deleteFromLast()
+// obj.deleteFromLast()
 
 //print
-obj.print();
+// obj.print();
+
+obj.middle();
