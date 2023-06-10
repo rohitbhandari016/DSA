@@ -53,6 +53,14 @@ class LinkedList {
     this.head = current.next;
   }
 
+  deleteFromLast(){
+    let current = this.head;
+    while(current.next.next){
+        current = current.next;
+    }
+    current.next=null
+  }
+
   print() {
     let current = this.head;
 
@@ -79,7 +87,10 @@ obj.add(5);
 // obj.addAtposition(45,30)
 
 //delete
-obj.deleteFromBegining()
+// obj.deleteFromBegining()
+
+//deleteFromLast
+obj.deleteFromLast()
 
 //print
 obj.print();
