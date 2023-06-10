@@ -48,6 +48,11 @@ class LinkedList {
     current.next = node;
   }
 
+  deleteFromBegining(){
+    let current = this.head;
+    this.head = current.next;
+  }
+
   print() {
     let current = this.head;
 
@@ -68,9 +73,13 @@ obj.add(4);
 obj.add(5);
 
 //add at begining
-obj.addAtBegining(0);
+// obj.addAtBegining(0);
 
-obj.addAtposition(45,30)
+//ad at position
+// obj.addAtposition(45,30)
+
+//delete
+obj.deleteFromBegining()
 
 //print
 obj.print();
