@@ -1,48 +1,61 @@
 class Node {
-    constructor(data){
-        this.data = data;
-        this.next = null;
-    }
+  constructor(data) {
+    this.data = data;
+    this.next = null;
+  }
 }
 
-class LinkedList{
-    constructor(){
-        this.head = null;
+class LinkedList {
+  constructor() {
+    this.head = null;
+  }
+
+  add(data) {
+    const node = new Node(data);
+    if (!this.head) {
+      this.head = node;
+    } else {
+      let current = this.head;
+
+      while (current.next) {
+        current = current.next;
+      }
+
+      current.next = node;
     }
+  }
 
-    add(data){
-        const node = new Node(data);
-        if(!this.head){
-            this.head = node;
-        } else {
-            let current = this.head;
-
-            while(current.next){
-                current = current.next;
-            }
-
-            current.next = node;
-        }
+  addAtBegining(data) {
+    const node = new Node(data);
+    if (!this.head) {
+      this.head = node;
+    } else {
+      node.next = this.head;
+      this.head = node;
     }
+  }
 
-    print(){
-        let current = this.head;
+  print() {
+    let current = this.head;
 
-        while(current){
-            console.log(current.data);
-            current = current.next;
-        }
+    while (current) {
+      console.log(current.data);
+      current = current.next;
     }
+  }
 }
 
 const obj = new LinkedList();
 
 //add
-obj.add(1);
-obj.add(2);
-obj.add(3);
-obj.add(4);
-obj.add(5);
+// obj.add(1);
+// obj.add(2);
+// obj.add(3);
+// obj.add(4);
+// obj.add(5);
+
+//add at begining
+obj.addAtBegining(0);
 
 //print
 obj.print();
