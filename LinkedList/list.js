@@ -77,6 +77,22 @@ class LinkedList {
     console.log(current1);
   }
 
+  mergeNodesBetweenZeros(){
+    let current  = this.head.next;
+    const list = new LinkedList();
+    let count = 0;
+    while(current){
+      if(current.data === 0){
+        list.add(count);
+        count = 0;
+      } else {
+        count = count + current.data;
+      }
+      current = current.next;
+    }
+    console.log(list.head)
+  }
+
   print() {
     let current = this.head;
 
@@ -90,12 +106,23 @@ class LinkedList {
 const obj = new LinkedList();
 
 //add
-obj.add(1);
-obj.add(2);
+obj.add(0);
 obj.add(3);
+obj.add(1);
+obj.add(0);
 obj.add(4);
 obj.add(5);
-obj.add(6);
+obj.add(2);
+obj.add(0);
+
+// obj.add(0)
+// obj.add(1)
+// obj.add(0)
+// obj.add(3)
+// obj.add(0)
+// obj.add(2)
+// obj.add(2)
+// obj.add(0)
 
 
 
@@ -112,7 +139,9 @@ obj.add(6);
 //deleteFromLast
 // obj.deleteFromLast()
 
+console.log(obj.mergeNodesBetweenZeros());
+
 //print
 // obj.print();
 
-obj.middle();
+// obj.middle();
