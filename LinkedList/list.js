@@ -1,6 +1,6 @@
 class Node {
   constructor(data) {
-    this.data = data;
+    this.data = data === undefined ? 0 :data;
     this.next = null;
   }
 }
@@ -79,18 +79,26 @@ class LinkedList {
 
   mergeNodesBetweenZeros(){
     let current  = this.head.next;
-    const list = new LinkedList();
     let count = 0;
+    let node = new Node(0)
+    let lastnode = node;
+    this.head = node;
+    
     while(current){
       if(current.data === 0){
-        list.add(count);
+
+        const node = new Node(count);
+        lastnode.next = node;
+        lastnode = node;
         count = 0;
       } else {
+
         count = count + current.data;
       }
       current = current.next;
     }
-    console.log(list.head)
+    console.log(this.head.next);
+
   }
 
   print() {
@@ -106,23 +114,23 @@ class LinkedList {
 const obj = new LinkedList();
 
 //add
-obj.add(0);
-obj.add(3);
-obj.add(1);
-obj.add(0);
-obj.add(4);
-obj.add(5);
-obj.add(2);
-obj.add(0);
+// obj.add(0);
+// obj.add(3);
+// obj.add(1);
+// obj.add(0);
+// obj.add(4);
+// obj.add(5);
+// obj.add(2);
+// obj.add(0);
 
-// obj.add(0)
-// obj.add(1)
-// obj.add(0)
-// obj.add(3)
-// obj.add(0)
-// obj.add(2)
-// obj.add(2)
-// obj.add(0)
+obj.add(0)
+obj.add(1)
+obj.add(0)
+obj.add(3)
+obj.add(0)
+obj.add(2)
+obj.add(2)
+obj.add(0)
 
 
 
