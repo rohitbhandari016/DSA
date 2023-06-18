@@ -43,7 +43,7 @@ class LinkedList {
     let current = this.head;
     let next = null;
 
-    while(current !== null){
+    while(current){
         next = current.next;
         current.next = previous;
         previous = current;
