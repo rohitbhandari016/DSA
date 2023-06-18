@@ -22,31 +22,36 @@ class LinkedList {
       this.head = node;
     }
   }
-  maxTwinSum(head) {
+
+  binaryToInteger(head) {
+    let sum = 0;
     let current = head;
-    let count = 0;
+    let iteration = 0;
+
     while (current) {
-      count++;
+      if (current.data) {
+        sum = sum + Math.pow(2, iteration);
+      }
       current = current.next;
+      iteration++;
     }
-    let mid = count / 2;
-    let current1 = this.head;
-    const stk = [];
-    let max = 0;
-    while (mid) {
-      stk.push(current1.data);
-      current1 = current1.next;
-      mid--;
-    }
-    while(current1){
-        const temp = stk.pop();
-        const sum = temp + current1.data;
-        if(sum > max){
-            max = sum;
-        }
-        current1 = current1.next
-    }
+    console.log(sum);
   }
+
+  reverse() {
+    let previous = null;
+    let current = this.head;
+    let next = null;
+
+    while(current !== null){
+        next = current.next;
+        current.next = previous;
+        previous = current;
+        current = next;
+    }
+    this.head = previous;
+  }
+
   print() {
     let current = this.head;
     while (current) {
@@ -58,12 +63,11 @@ class LinkedList {
 
 const obj = new LinkedList();
 //add
-obj.add(5);
-obj.add(4);
-obj.add(2);
 obj.add(1);
+obj.add(2);
+obj.add(3);
 
 //print
-// obj.print();
-
-obj.maxTwinSum(obj.head);
+obj.reverse();
+obj.print();
+//   obj.binaryToInteger(obj.head);
