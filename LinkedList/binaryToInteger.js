@@ -40,15 +40,16 @@ class LinkedList {
 
   reverse() {
     let previous = null;
-    let current = this.head;
     let next = null;
+    let current = this.head;
 
     while(current){
-        next = current.next;
-        current.next = previous;
-        previous = current;
-        current = next;
+      next = current.next;
+      current.next = previous;
+      previous = current;
+      current = next;
     }
+
     this.head = previous;
   }
 
