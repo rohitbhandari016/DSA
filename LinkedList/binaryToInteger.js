@@ -53,6 +53,7 @@ class LinkedList {
     this.head = previous;
   }
 
+
   print() {
     let current = this.head;
     while (current) {
