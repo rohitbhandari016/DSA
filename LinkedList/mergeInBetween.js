@@ -19,17 +19,21 @@ var mergeInBetween = function(list1, a, b, list2) {
     let slow = null;
     let fast = null;
   
+    let count = 0
+  
   
     while(current.next){
-        if(current.next?.val === a){
+        if(count+1 === a){
             slow = current;
-            while(slow.val !== b ){
+            while(count !== b ){
                 slow = slow.next
+                count++
             }
             slow = slow.next
             current.next = list2
         }
         current = current.next;
+        count++;
     }
   
   current.next = slow
