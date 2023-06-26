@@ -1,10 +1,15 @@
 const fact = (num) => {
-  let factorial = 1;
-  for (let i = num; i > 0; i--) {
-    factorial = factorial * i;
-  }
-
-  return factorial;
+    if(num < 0){
+        return "number has to be positive."
+    }
+    
+    //base case
+    if(num == 0 || num == 1){
+        return 1;
+    //recursive case
+    }else{
+        return num * fact(num-1);
+    }
 };
 
 console.log(fact(5));
