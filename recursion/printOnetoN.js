@@ -4,6 +4,8 @@ const printNum = (num) => {
     } 
     console.log(num);
     printNum(num -1)
+    console.log(num);
+
 }
 
-printNum(5)
+printNum(4)
