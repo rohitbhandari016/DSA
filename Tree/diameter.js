@@ -30,6 +30,17 @@ class Tree{
     }
     return Math.max(this.height(root.left), this.height(root.right)) + 1;
    }
+
+   diameter(root){
+    if(root === null){
+        return 0
+    }
+    const ls = this.diameter(root.left);
+    const rs = this.diameter(root.right);
+    const d3 = this.height(root.left) + this.height(root.right) + 1;
+
+    return Math.max(d3, Math.max(ls,rs));
+   }
 }
 
 const preorder = [1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1];
@@ -37,6 +48,6 @@ const preorder = [1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1];
 const obj = new Tree();
 const root = obj.add(preorder);
 
-const height = obj.height(root);
+const diameter = obj.diameter(root);
 
-console.log(height)
+console.log(diameter);

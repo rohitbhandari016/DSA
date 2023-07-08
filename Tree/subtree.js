@@ -30,6 +30,19 @@ class Tree{
     }
     return Math.max(this.height(root.left), this.height(root.right)) + 1;
    }
+
+   sub(root, subtree){
+    if(root === null){
+        return false;
+    }
+    if(root.data === subtree.data){
+        if(root.left.data === subtree.left.data && root.right.data === subtree.right.data){
+            return true;
+        }
+    }
+
+    return this.sub(root.left, subtree) || this.sub(root.right, subtree);
+   }
 }
 
 const preorder = [1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1];
@@ -37,6 +50,11 @@ const preorder = [1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1];
 const obj = new Tree();
 const root = obj.add(preorder);
 
-const height = obj.height(root);
+const subt = new Node(2);
+subt.left = new Node(4);
+subt.right = new Node(5);
 
-console.log(height)
+
+const sub = obj.sub(root, subt);
+
+console.log(sub);

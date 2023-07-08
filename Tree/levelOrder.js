@@ -23,13 +23,22 @@ class Tree{
 
         return node;
     }
+    levelorder(root){
+        const q = [];
 
-   height(root){
-    if(root === null){
-        return 0;
+        q.push(root);
+
+        while(q.length){
+            const node = q.shift();
+            console.log(node.data);
+            if(node.left){
+                q.push(node.left);
+            }
+            if(node.right){
+                q.push(node.right);
+            }
+        }
     }
-    return Math.max(this.height(root.left), this.height(root.right)) + 1;
-   }
 }
 
 const preorder = [1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1];
@@ -37,6 +46,4 @@ const preorder = [1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1];
 const obj = new Tree();
 const root = obj.add(preorder);
 
-const height = obj.height(root);
-
-console.log(height)
+obj.levelorder(root);
