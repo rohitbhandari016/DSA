@@ -6,37 +6,38 @@ class Node{
     }
 }
 
-class Tree {
+class BinaryTree {
 
     constructor(){
         this.root = null;
     }
 
-    insert(val){
-        const newNode = new Node(val);
-        if(this.root === null){
-            this.root = newNode;
-        }
-
-        else{
-            this.insertNode(this.root, newNode);
+    insertNode(root, newNode){
+        if(root.data > newNode.data){
+           if(root.left === null){
+            root.left = newNode;
+           }
+           else{
+            this.insertNode(root.left, newNode);
+           }
+        } else {
+            if(root.right === null){
+                root.right = newNode;
+            } else{
+                this.insertNode(root.right, newNode);
+            }
         }
     }
 
-    insertNode(root, newNode){
-        if(root.data > newNode.data){
-            if(root.left === null){
-                root.left = newNode;
-            } else {
-                this.insertNode(root.left, newNode);
-            }
-        } 
+    insert(data){
+        const node = new Node(data);
+
+        if(this.root === null){
+            this.root = node;
+        }
+
         else{
-            if(root.right === null){
-                root.right = newNode;
-            } else {
-                this.insertNode(root.right, newNode);
-            }
+            this.insertNode(this.root, node);
         }
     }
 
@@ -50,9 +51,7 @@ class Tree {
     }
 }
 
-
-
-const obj = new Tree();
+const obj = new BinaryTree();
 
 obj.insert(5);
 obj.insert(1);
@@ -61,12 +60,4 @@ obj.insert(4);
 obj.insert(2);
 obj.insert(7);
 
-
-obj.inorderTraversal(obj.root);
-
-
-
-
-
-
-
+obj.inorderTraversal(obj.root)
